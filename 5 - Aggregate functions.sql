@@ -84,7 +84,8 @@ group by product_category;
 
 select product_category, count(*) as product_count
 from products
-where unit_price>=100 and (product_category in ('Office Consumables','Kithen & Home'))
+where unit_price>=100 
+and (product_category in ('Office Consumables','Kithen & Home'))
 group by product_category;
 
 select product_category, count(*) as product_count
@@ -118,10 +119,14 @@ select sum(unit_price) from products;
 select sum(unit_price) 
 from products
 where product_category='computers';
-
 select product_category, sum(unit_price) 
 from products
 group by product_category;
+
+select product_category, sum(unit_price) 
+from products
+group by product_category
+order by sum(unit_price);
 
 #avg
 
@@ -146,7 +151,12 @@ select product_name, max(unit_price)
 from products
 group by product_category='computers';
 
-select max(unit_price) 
+select product_category,product_name,max(unit_price) 
+from products
+group by product_category;
+
+
+select product_category,product_name,min(unit_price) 
 from products
 group by product_category;
 
